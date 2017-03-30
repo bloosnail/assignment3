@@ -1,26 +1,32 @@
 <?php 
-	// this file will extend PArentClass.php
-
+	// fish species class
 	class ChildClass extends ParentClass {
-		private $noise;
-		private $trick;
+		
+		private $size;
+		private $eats;
+		private $species;
+		private $marks;
+		private $lives;
 
-		public function __construct($sz, $nme, $nse, $trck){
-			parent::__construct($sz, $nme);
-			$this->noise = $nse;
-			$this->trick = $trck;
-		}
+		//clone
+		private $thisObject;
 
-		public function getEats(){
-			return $this->noise;
-		}
-
-		public function (){
-			return $this->trick;
-		}
-
-		public function __toString(){
+		public function __construct($sz, $ets, $spec, $mrk, $lvs){
+			parent::__construct($sz, $ets, $spec);
+			$this->mark = $mrk;
+			$this->lives = $lvs;
 			
+			//clone
+			$this->thisObject = new stdClass();
+		}
+		
+		// on clone, make a deep copy of this object by cloning internal member;
+		public function __clone() {
+			$this->_thisObject = clone $this->_thisObject;
+		}
+		
+		public function __toString(){
+			return parent::__toString() . $this->spec . ' are usually ' . $this->mark . ' and generally live in ' . $this->lives . ".";
 		}
 
 	}

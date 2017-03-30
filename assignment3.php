@@ -8,23 +8,24 @@
 	</head>
 
 	<body>
-		<h1>Choose a pet and give it a name</h1>
-		<form method=post">
-			Type of Pet: <br>
-			<input type="radio" name="type" value="dog">Dog<br>
-			<input type="radio" name="type" value="fish">Fish<br>
-  
-			Name of Pet:<br>
-			<input type="text" name2="name" value2=""><br><br>
-			<input type="submit" value="Submit">
-		</form>	
-
+		<h2>Daniel Hui Assignment 3</h2>
+		<h1>Information about fish:</h1>
+		
 		
 		<?php 
 			include('ParentClass.php');
 			include('ChildClass.php');
-
-			//post the values from form, and do it that way?
+			
+			$all_fish = array(
+				new ChildClass("pretty big", "fish", "Thresher sharks", "solid-colored", "saltwater"),
+				new ChildClass("about a foot long", "benthic macroinvertebrates and small fish", "Rainbow trout", "spotted", "freshwater"),
+				new ChildClass("a few inches long", "small snails", "Dwarf pufferfish", "spotted", "freshwater"),
+				new ChildClass("pretty big", "anything", "Bull sharks", "solid-colored", "anywhere")
+			);
+			
+			foreach ($all_fish as $fish) {
+				echo "<li>" . $fish . "</li><br>";
+			}
 			
 			
 		?>
